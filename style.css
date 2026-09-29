@@ -20,31 +20,11 @@ body {
 }
 
 .progress { margin-bottom: 28px; }
-
-.progress-bar {
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-  margin-top: 8px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #e94560, #fda10c);
-  border-radius: 3px;
-  width: 0%;
-  transition: width 0.4s ease;
-}
-
+.progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 8px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #e94560, #f5a623); border-radius: 3px; width: 0%; transition: width 0.4s ease; }
 #progressText { font-size: 13px; opacity: 0.6; }
 
-.question {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 28px;
-  line-height: 1.4;
-}
-
+.question { font-size: 20px; font-weight: 600; margin-bottom: 28px; line-height: 1.4; }
 .options { display: flex; flex-direction: column; gap: 12px; }
 
 .option-btn {
@@ -58,23 +38,12 @@ body {
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
-
 .option-btn:hover { background: rgba(255,255,255,0.1); }
+.option-btn.correct { background: rgba(46,213,115,0.2); border-color: #2ed573; }
+.option-btn.wrong { background: rgba(255,71,87,0.2); border-color: #ff4757; }
 
-.option-btn.correct {
-  background: rgba(46, 213, 115, 0.2);
-  border-color: #2ed573;
-}
-
-.option-btn.wrong {
-  background: rgba(255, 71, 87, 0.2);
-  border-color: #ff4757;
-}
-
-.next-btn {
-  margin-top: 24px;
-  width: 100%;
-  padding: 14px;
+.next-btn, #restartBtn {
+  padding: 14px 32px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(90deg, #e94560, #f5a623);
@@ -83,19 +52,31 @@ body {
   cursor: pointer;
   transition: opacity 0.2s;
 }
-
-.next-btn:hover { opacity: 0.85; }
+.next-btn { margin-top: 24px; width: 100%; }
+.next-btn:hover, #restartBtn:hover { opacity: 0.85; }
 
 .result-card { text-align: center; }
 .result-card h2 { font-size: 32px; margin-bottom: 16px; }
 .result-card p { opacity: 0.8; margin-bottom: 28px; font-size: 18px; }
 
-#restartBtn {
-  padding: 14px 32px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #e94560, #f5a623);
-  color: white;
-  font-size: 15px;
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-btn {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
   cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.reset-btn:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.4);
 }

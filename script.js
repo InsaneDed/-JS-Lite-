@@ -2,7 +2,7 @@ const questions = [
   {
     question: "Что делает document.getElementById()?",
     options: ["Создаёт элемент", "Находит элемент по id", "Удаляет элемент", "Меняет стиль"],
-    correct: 1   // индекс правильного ответа (считаем с нуля)
+    correct: 1
   },
   {
     question: "Какой тег делает текст жирным?",
@@ -26,21 +26,20 @@ const questions = [
   },
   {
     question: "Как объявить переменную, которую нельзя переопределить?",
-  options: ["let x", "const x", "var x", "Все варианты"],
-  correct: 1
-},
-{
-  question: "Что вернёт typeof null?",
-  options: ["'null'", "'object'", "'undefined'", "'boolean'"],
-  correct: 1
-},
+    options: ["let x", "const x", "var x", "Все варианты"],
+    correct: 1
+  },
+  {
+    question: "Что вернёт typeof null?",
+    options: ["'null'", "'object'", "'undefined'", "'boolean'"],
+    correct: 1
+  }
 ];
 
-let currentQuestion = 0;   // индекс текущего вопроса
-let score = 0;              // счёт
-let answered = false;       // защита от повторного клика
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
 
-// Находим элементы
 let questionText = document.getElementById("questionText");
 let optionsContainer = document.getElementById("optionsContainer");
 let nextBtn = document.getElementById("nextBtn");
@@ -57,15 +56,12 @@ function showQuestion() {
   answered = false;
   nextBtn.style.display = "none";
 
-  // Прогресс
-  let progress = ((currentQuestion) / questions.length) * 100;
+  let progress = (currentQuestion / questions.length) * 100;
   progressFill.style.width = progress + "%";
   progressText.textContent = "Вопрос " + (currentQuestion + 1) + " из " + questions.length;
 
-  // Вопрос
   questionText.textContent = q.question;
 
-  // Варианты ответов
   optionsContainer.innerHTML = "";
   q.options.forEach(function(option, index) {
     let btn = document.createElement("button");
@@ -79,7 +75,7 @@ function showQuestion() {
 }
 
 function selectAnswer(selectedIndex, selectedBtn) {
-  if (answered) return;   // защита от повторного клика
+  if (answered) return;
   answered = true;
 
   let correct = questions[currentQuestion].correct;
@@ -89,7 +85,6 @@ function selectAnswer(selectedIndex, selectedBtn) {
     score++;
   } else {
     selectedBtn.classList.add("wrong");
-    // Подсветить правильный ответ
     optionsContainer.children[correct].classList.add("correct");
   }
 
@@ -122,6 +117,15 @@ nextBtn.addEventListener("click", function() {
   }
 });
 
+let resetBtn = document.getElementById("resetBtn");
+
+resetBtn.addEventListener("click", function() {
+  currentQuestion = 0;
+  score = 0;
+  answered = false;
+  showQuestion();
+});
+
 restartBtn.addEventListener("click", function() {
   currentQuestion = 0;
   score = 0;
@@ -131,5 +135,4 @@ restartBtn.addEventListener("click", function() {
   showQuestion();
 });
 
-// Запуск
 showQuestion();
