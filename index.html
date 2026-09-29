@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Квиз</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="quiz-card" id="quizCard">
+
+    <div class="progress">
+      <span id="progressText">Вопрос 1 из 7</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <h2 class="question" id="questionText">Текст вопроса</h2>
+
+    <div class="options" id="optionsContainer"></div>
+
+    <button class="next-btn" id="nextBtn" style="display:none">
+      Следующий вопрос →
+    </button>
+
+  </div>
+
+  <div class="result-card" id="resultCard" style="display:none">
+    <h2 id="resultTitle">Результат</h2>
+    <p id="resultScore"></p>
+    <button id="restartBtn">Пройти снова</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
